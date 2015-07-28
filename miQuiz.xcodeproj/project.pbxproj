@@ -14,6 +14,13 @@
 		0C6B9AA71B66894300D5FBD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B9AA61B66894300D5FBD4 /* Images.xcassets */; };
 		0C6B9AAA1B66894300D5FBD4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B9AA81B66894300D5FBD4 /* LaunchScreen.xib */; };
 		0C6B9AB61B66894300D5FBD4 /* miQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AB51B66894300D5FBD4 /* miQuizTests.swift */; };
+		0C6B9AC01B66B55700D5FBD4 /* VCmiQuizzes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9ABF1B66B55700D5FBD4 /* VCmiQuizzes.swift */; };
+		0C6B9AC21B66B5D100D5FBD4 /* VCmiQuizzesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC11B66B5D100D5FBD4 /* VCmiQuizzesDetail.swift */; };
+		0C6B9AC41B66B61D00D5FBD4 /* VCmiQuizzesDetailAddQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC31B66B61D00D5FBD4 /* VCmiQuizzesDetailAddQuestion.swift */; };
+		0C6B9AC61B66B63C00D5FBD4 /* VCmiQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC51B66B63C00D5FBD4 /* VCmiQuestions.swift */; };
+		0C6B9AC81B66B66200D5FBD4 /* VCmiQuestionsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC71B66B66200D5FBD4 /* VCmiQuestionsDetail.swift */; };
+		0C6B9ACA1B66B67D00D5FBD4 /* VCsharedQuizzes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */; };
+		0C6B9ACC1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +45,13 @@
 		0C6B9AAF1B66894300D5FBD4 /* miQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = miQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6B9AB41B66894300D5FBD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C6B9AB51B66894300D5FBD4 /* miQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miQuizTests.swift; sourceTree = "<group>"; };
+		0C6B9ABF1B66B55700D5FBD4 /* VCmiQuizzes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCmiQuizzes.swift; sourceTree = "<group>"; };
+		0C6B9AC11B66B5D100D5FBD4 /* VCmiQuizzesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCmiQuizzesDetail.swift; sourceTree = "<group>"; };
+		0C6B9AC31B66B61D00D5FBD4 /* VCmiQuizzesDetailAddQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCmiQuizzesDetailAddQuestion.swift; sourceTree = "<group>"; };
+		0C6B9AC51B66B63C00D5FBD4 /* VCmiQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCmiQuestions.swift; sourceTree = "<group>"; };
+		0C6B9AC71B66B66200D5FBD4 /* VCmiQuestionsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCmiQuestionsDetail.swift; sourceTree = "<group>"; };
+		0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCsharedQuizzes.swift; sourceTree = "<group>"; };
+		0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCsharedQuizzesDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +95,14 @@
 			children = (
 				0C6B9A9C1B66894300D5FBD4 /* AppDelegate.swift */,
 				0C6B9AA11B66894300D5FBD4 /* ViewController.swift */,
+				0C6B9ABF1B66B55700D5FBD4 /* VCmiQuizzes.swift */,
 				0C6B9AA31B66894300D5FBD4 /* Main.storyboard */,
+				0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */,
+				0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */,
+				0C6B9AC71B66B66200D5FBD4 /* VCmiQuestionsDetail.swift */,
+				0C6B9AC51B66B63C00D5FBD4 /* VCmiQuestions.swift */,
+				0C6B9AC31B66B61D00D5FBD4 /* VCmiQuizzesDetailAddQuestion.swift */,
+				0C6B9AC11B66B5D100D5FBD4 /* VCmiQuizzesDetail.swift */,
 				0C6B9AA61B66894300D5FBD4 /* Images.xcassets */,
 				0C6B9AA81B66894300D5FBD4 /* LaunchScreen.xib */,
 				0C6B9A9E1B66894300D5FBD4 /* miQuiz.xcdatamodeld */,
@@ -164,6 +185,7 @@
 				TargetAttributes = {
 					0C6B9A961B66894300D5FBD4 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 38FE87B9JL;
 					};
 					0C6B9AAE1B66894300D5FBD4 = {
 						CreatedOnToolsVersion = 6.4;
@@ -215,8 +237,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6B9ACC1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift in Sources */,
 				0C6B9AA21B66894300D5FBD4 /* ViewController.swift in Sources */,
+				0C6B9AC81B66B66200D5FBD4 /* VCmiQuestionsDetail.swift in Sources */,
+				0C6B9AC41B66B61D00D5FBD4 /* VCmiQuizzesDetailAddQuestion.swift in Sources */,
+				0C6B9AC61B66B63C00D5FBD4 /* VCmiQuestions.swift in Sources */,
 				0C6B9AA01B66894300D5FBD4 /* miQuiz.xcdatamodeld in Sources */,
+				0C6B9AC21B66B5D100D5FBD4 /* VCmiQuizzesDetail.swift in Sources */,
+				0C6B9ACA1B66B67D00D5FBD4 /* VCsharedQuizzes.swift in Sources */,
+				0C6B9AC01B66B55700D5FBD4 /* VCmiQuizzes.swift in Sources */,
 				0C6B9A9D1B66894300D5FBD4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,9 +375,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = miQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -356,9 +388,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = miQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
