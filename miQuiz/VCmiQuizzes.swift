@@ -2,7 +2,7 @@
 //  VCmiQuizzes.swift
 //  miQuiz
 //
-//  Created by Jason Spence on 27/07/2015.
+//  Created by Liam on 27/07/2015.
 //  Copyright (c) 2015 Jason Spence. All rights reserved.
 //
 
