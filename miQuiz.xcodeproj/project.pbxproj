@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C44A2F31B6834B1003CBA73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2F21B6834B1003CBA73 /* CFNetwork.framework */; };
+		0C44A2F51B6834CB003CBA73 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2F41B6834CB003CBA73 /* Firebase.framework */; };
+		0C44A2F71B6834DB003CBA73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2F61B6834DB003CBA73 /* SystemConfiguration.framework */; };
+		0C44A2F91B6834E6003CBA73 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2F81B6834E6003CBA73 /* Security.framework */; };
+		0C44A2FB1B6834F8003CBA73 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2FA1B6834F8003CBA73 /* libicucore.dylib */; };
+		0C44A2FD1B68350A003CBA73 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2FC1B68350A003CBA73 /* libc++.dylib */; };
 		0C6B9A9D1B66894300D5FBD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9A9C1B66894300D5FBD4 /* AppDelegate.swift */; };
 		0C6B9AA01B66894300D5FBD4 /* miQuiz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9A9E1B66894300D5FBD4 /* miQuiz.xcdatamodeld */; };
 		0C6B9AA21B66894300D5FBD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AA11B66894300D5FBD4 /* ViewController.swift */; };
@@ -34,6 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C44A2F21B6834B1003CBA73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0C44A2F41B6834CB003CBA73 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../Downloads/Firebase/Firebase.framework; sourceTree = "<group>"; };
+		0C44A2F61B6834DB003CBA73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0C44A2F81B6834E6003CBA73 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0C44A2FA1B6834F8003CBA73 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		0C44A2FC1B68350A003CBA73 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		0C44A2FE1B683590003CBA73 /* miQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "miQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
 		0C6B9A971B66894300D5FBD4 /* miQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6B9A9B1B66894300D5FBD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C6B9A9C1B66894300D5FBD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +72,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C44A2FD1B68350A003CBA73 /* libc++.dylib in Frameworks */,
+				0C44A2FB1B6834F8003CBA73 /* libicucore.dylib in Frameworks */,
+				0C44A2F91B6834E6003CBA73 /* Security.framework in Frameworks */,
+				0C44A2F71B6834DB003CBA73 /* SystemConfiguration.framework in Frameworks */,
+				0C44A2F51B6834CB003CBA73 /* Firebase.framework in Frameworks */,
+				0C44A2F31B6834B1003CBA73 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +94,16 @@
 		0C6B9A8E1B66894300D5FBD4 = {
 			isa = PBXGroup;
 			children = (
+				0C44A2FC1B68350A003CBA73 /* libc++.dylib */,
+				0C44A2FA1B6834F8003CBA73 /* libicucore.dylib */,
+				0C44A2F81B6834E6003CBA73 /* Security.framework */,
+				0C44A2F61B6834DB003CBA73 /* SystemConfiguration.framework */,
+				0C44A2F41B6834CB003CBA73 /* Firebase.framework */,
+				0C44A2F21B6834B1003CBA73 /* CFNetwork.framework */,
 				0C6B9A991B66894300D5FBD4 /* miQuiz */,
 				0C6B9AB21B66894300D5FBD4 /* miQuizTests */,
 				0C6B9A981B66894300D5FBD4 /* Products */,
+				0C44A2FE1B683590003CBA73 /* miQuiz-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -375,11 +401,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Liam/Downloads/Firebase,
+				);
 				INFOPLIST_FILE = miQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "miQuiz-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -388,11 +422,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Liam/Downloads/Firebase,
+				);
 				INFOPLIST_FILE = miQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "miQuiz-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -450,6 +491,7 @@
 				0C6B9ABB1B66894300D5FBD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C6B9ABC1B66894300D5FBD4 /* Build configuration list for PBXNativeTarget "miQuizTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +500,7 @@
 				0C6B9ABE1B66894300D5FBD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
