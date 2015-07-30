@@ -16,8 +16,9 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var myPicker: UIPickerView!
     @IBOutlet weak var doneButton: UIButton!
     
+    @IBOutlet weak var roundName: UILabel!
     @IBOutlet weak var quizName: UILabel!
-    
+    var name = ""
     @IBAction func closeWindow(sender: AnyObject) {
         var view: VCmiQuizzesDetail = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetail") as! VCmiQuizzesDetail
         //Set the animation
@@ -237,7 +238,9 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
             var new = ["Question": questionToAdd, "Answer": answerToAdd, "Category": categoryToAdd, "ID":"ID" + String(count)]
             ref.setValue(new)
             
-            var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.quizName.text!)/Round 1" )
+            
+            
+            var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.quizName.text!)/\(self.roundName.text!)" )
             let post1 = ["ID": "ID" + String(count)]
             let post1Ref = addToQuiz.childByAutoId()
             post1Ref.setValue(post1)
@@ -354,7 +357,7 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
                             if elements.key == "Question" {
                                 if elements.value as! String == self.search[indexPath.row]
                                 {
-                                    var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.quizName.text!)/Round 1" )
+                                    var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.quizName.text!)/\(self.roundName.text!)" )
                                     let post1 = ["ID": ID]
                                     let post1Ref = addToQuiz.childByAutoId()
                                     post1Ref.setValue(post1)
