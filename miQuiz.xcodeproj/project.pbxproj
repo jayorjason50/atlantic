@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C44A2F31B6834B1003CBA73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2F21B6834B1003CBA73 /* CFNetwork.framework */; };
-		0C44A2F51B6834CB003CBA73 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2F41B6834CB003CBA73 /* Firebase.framework */; };
 		0C44A2F71B6834DB003CBA73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2F61B6834DB003CBA73 /* SystemConfiguration.framework */; };
 		0C44A2F91B6834E6003CBA73 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2F81B6834E6003CBA73 /* Security.framework */; };
 		0C44A2FB1B6834F8003CBA73 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C44A2FA1B6834F8003CBA73 /* libicucore.dylib */; };
@@ -27,6 +26,7 @@
 		0C6B9ACA1B66B67D00D5FBD4 /* VCsharedQuizzes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */; };
 		0C6B9ACC1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */; };
 		0CD683F91B6FDF3500A39AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD683F81B6FDF3500A39AF9 /* Main.storyboard */; };
+		0CF740451B8513E1001B1C8D /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF740441B8513CE001B1C8D /* Firebase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		0C44A2F21B6834B1003CBA73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		0C44A2F41B6834CB003CBA73 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../Downloads/Firebase/Firebase.framework; sourceTree = "<group>"; };
 		0C44A2F61B6834DB003CBA73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0C44A2F81B6834E6003CBA73 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C44A2FA1B6834F8003CBA73 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -65,6 +64,7 @@
 		0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCsharedQuizzes.swift; sourceTree = "<group>"; };
 		0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCsharedQuizzesDetail.swift; sourceTree = "<group>"; };
 		0CD683F81B6FDF3500A39AF9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0CF740441B8513CE001B1C8D /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +72,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CF740451B8513E1001B1C8D /* Firebase.framework in Frameworks */,
 				0C44A2FD1B68350A003CBA73 /* libc++.dylib in Frameworks */,
 				0C44A2FB1B6834F8003CBA73 /* libicucore.dylib in Frameworks */,
 				0C44A2F91B6834E6003CBA73 /* Security.framework in Frameworks */,
 				0C44A2F71B6834DB003CBA73 /* SystemConfiguration.framework in Frameworks */,
-				0C44A2F51B6834CB003CBA73 /* Firebase.framework in Frameworks */,
 				0C44A2F31B6834B1003CBA73 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,11 +94,11 @@
 		0C6B9A8E1B66894300D5FBD4 = {
 			isa = PBXGroup;
 			children = (
+				0CF740431B8513CE001B1C8D /* Firebase */,
 				0C44A2FC1B68350A003CBA73 /* libc++.dylib */,
 				0C44A2FA1B6834F8003CBA73 /* libicucore.dylib */,
 				0C44A2F81B6834E6003CBA73 /* Security.framework */,
 				0C44A2F61B6834DB003CBA73 /* SystemConfiguration.framework */,
-				0C44A2F41B6834CB003CBA73 /* Firebase.framework */,
 				0C44A2F21B6834B1003CBA73 /* CFNetwork.framework */,
 				0C6B9A991B66894300D5FBD4 /* miQuiz */,
 				0C6B9AB21B66894300D5FBD4 /* miQuizTests */,
@@ -160,6 +160,15 @@
 				0C6B9AB41B66894300D5FBD4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0CF740431B8513CE001B1C8D /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				0CF740441B8513CE001B1C8D /* Firebase.framework */,
+			);
+			name = Firebase;
+			path = "../../../../Downloaded Frameworks/Firebase";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +407,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Liam/Downloads/Firebase,
+					"$(USER_LIBRARY_DIR)/Mobile",
+					"Documents/com~apple~CloudDocs/Downloaded",
+					Frameworks/Firebase,
 				);
 				INFOPLIST_FILE = miQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -419,6 +431,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Liam/Downloads/Firebase,
+					"$(USER_LIBRARY_DIR)/Mobile",
+					"Documents/com~apple~CloudDocs/Downloaded",
+					Frameworks/Firebase,
 				);
 				INFOPLIST_FILE = miQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

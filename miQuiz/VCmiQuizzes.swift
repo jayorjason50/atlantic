@@ -20,9 +20,12 @@ class VCmiQuizzes: UIViewController , UITableViewDataSource, UITableViewDelegate
         
         
         
+        var purple = UIColor(red:(84/255),green:(0/255),blue:(79/255),alpha:1.0)
+       
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:UIControlState.Normal)
         
-        
-        self.title = "miQuizzes"
+        navigationController?.navigationBar.barTintColor = purple
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
         navigationItem.leftBarButtonItem = backButton
         

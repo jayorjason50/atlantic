@@ -20,6 +20,7 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
     var quiz = ""
     var name = ""
     var timer: NSTimer!
+    var grey = UIColor(red:(204/255),green:(204/255),blue:(204/255),alpha:1.0)
     
     
     
@@ -111,6 +112,13 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
         
         return num
     }
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 0))
+        footerView.backgroundColor = grey
+        
+        
+        return footerView
+    }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int)-> String? {
         
@@ -132,6 +140,11 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
         button.setTitle("Add Question", forState: .Normal)
         button.setTitleColor(UIColor.grayColor(),forState: UIControlState.Normal)
         let views = ["label": label,"button":button,"view": view]
+        
+        
+        view.backgroundColor = grey
+        
+        
         view.addSubview(label)
         view.addSubview(button)
         var horizontallayoutContraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[label]-60-[button]-10-|", options: .AlignAllCenterY, metrics: nil, views: views)
@@ -182,6 +195,30 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
         }
         cell.textLabel?.text = MiQuestionTitle as? String //Now set the title and images of the cell
         var myImage = UIImage(named: "CellIcon")
+        
+        
+        
+        var snapshot: FDataSnapshot = FDataSnapshot()
+        var ref = Firebase(url:"https://miquiz.firebaseio.com/Questions" )
+        ref.observeSingleEventOfType(.Value, withBlock:{snapshot in
+            
+            
+            for rest in snapshot.children.allObjects as! [FDataSnapshot]{
+                var data = rest.value.objectForKey("Question") as! String
+                if data == "\(MiQuestionTitle)"{
+                    var cat = rest.value.objectForKey("Category") as! String
+                    cell.detailTextLabel?.text = cat
+                }
+                
+
+            }
+        
+        })
+        
+        
+        
+        
+        
         cell.imageView?.image = myImage
         
         
@@ -195,36 +232,12 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        //Values to index into the array holding the data
-//        let sec = indexPath.section
-//        var count = 0
-//        for spaces in roundSec{
-//            println("\(spaces)")
-//            if sec > spaces as! Int {count++}
-//            
-//        }
-//        
-//        
-//        
-//                    quiz =  (miQuestions[indexPath.row + count] as! String)
-//                    
-//        
-//                    
-//                    
-//        
-//        
-//        
-//        
-//        
-//    }
     
     func addRound(sender:UIButton){
     
         var theRoundVal = (miRounds[miRounds.count - 1] as! Int) + 1
-        println("\(theRoundVal)")
         var roundRef =  Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.name)/Round \(theRoundVal)")
         let post1 = ["Question": "Add Your Own Question" , "Answer":"And Your Own Answer"]
         let post1Ref = roundRef.childByAutoId()
@@ -245,7 +258,25 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
     
     }
     
-
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var deleteButton = UITableViewRowAction(style: .Default, title: "Remove", handler: { (action, indexPath) in
+            self.tableView.dataSource?.tableView?(
+                self.tableView,
+                commitEditingStyle: .Delete,
+                forRowAtIndexPath: indexPath
+            )
+            
+            return
+        })
+        
+        deleteButton.backgroundColor = UIColor.orangeColor()
+        
+        return [deleteButton]
+    }
+    
+    
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete{
             
@@ -308,7 +339,7 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
                                                 {
                                                     
                                                     var theRef = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.name)/Round \(indexPath.section + 1)/\(all.key)" )
-                                                    //println("there")
+                                                    println("there")
                                                     let post1 = []
                                                     theRef.setValue(post1)
                                                     
@@ -328,23 +359,24 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
                         }
                         
                         
-                        
+                       
                     }
-
+                   
                 })
                 
                 
         }
+                
         
-                    
        
      }
+    
    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-            tableView.reloadData()
-       
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(true)
+//            tableView.reloadData()
+//       
+//    }
     
 
 }
