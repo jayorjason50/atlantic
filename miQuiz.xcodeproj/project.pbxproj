@@ -16,7 +16,6 @@
 		0C6B9A9D1B66894300D5FBD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9A9C1B66894300D5FBD4 /* AppDelegate.swift */; };
 		0C6B9AA01B66894300D5FBD4 /* miQuiz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9A9E1B66894300D5FBD4 /* miQuiz.xcdatamodeld */; };
 		0C6B9AA21B66894300D5FBD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AA11B66894300D5FBD4 /* ViewController.swift */; };
-		0C6B9AA51B66894300D5FBD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B9AA31B66894300D5FBD4 /* Main.storyboard */; };
 		0C6B9AA71B66894300D5FBD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B9AA61B66894300D5FBD4 /* Images.xcassets */; };
 		0C6B9AAA1B66894300D5FBD4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B9AA81B66894300D5FBD4 /* LaunchScreen.xib */; };
 		0C6B9AB61B66894300D5FBD4 /* miQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AB51B66894300D5FBD4 /* miQuizTests.swift */; };
@@ -27,6 +26,7 @@
 		0C6B9AC81B66B66200D5FBD4 /* VCmiQuestionsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC71B66B66200D5FBD4 /* VCmiQuestionsDetail.swift */; };
 		0C6B9ACA1B66B67D00D5FBD4 /* VCsharedQuizzes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */; };
 		0C6B9ACC1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */; };
+		0CD683F91B6FDF3500A39AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD683F81B6FDF3500A39AF9 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,6 @@
 		0C6B9A9C1B66894300D5FBD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C6B9A9F1B66894300D5FBD4 /* miQuiz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = miQuiz.xcdatamodel; sourceTree = "<group>"; };
 		0C6B9AA11B66894300D5FBD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0C6B9AA41B66894300D5FBD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C6B9AA61B66894300D5FBD4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0C6B9AA91B66894300D5FBD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0C6B9AAF1B66894300D5FBD4 /* miQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = miQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +64,7 @@
 		0C6B9AC71B66B66200D5FBD4 /* VCmiQuestionsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCmiQuestionsDetail.swift; sourceTree = "<group>"; };
 		0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCsharedQuizzes.swift; sourceTree = "<group>"; };
 		0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCsharedQuizzesDetail.swift; sourceTree = "<group>"; };
+		0CD683F81B6FDF3500A39AF9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				0C6B9A9C1B66894300D5FBD4 /* AppDelegate.swift */,
+				0CD683F81B6FDF3500A39AF9 /* Main.storyboard */,
 				0C6B9AA11B66894300D5FBD4 /* ViewController.swift */,
 				0C6B9ABF1B66B55700D5FBD4 /* VCmiQuizzes.swift */,
-				0C6B9AA31B66894300D5FBD4 /* Main.storyboard */,
 				0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */,
 				0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */,
 				0C6B9AC71B66B66200D5FBD4 /* VCmiQuestionsDetail.swift */,
@@ -243,7 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C6B9AA51B66894300D5FBD4 /* Main.storyboard in Resources */,
+				0CD683F91B6FDF3500A39AF9 /* Main.storyboard in Resources */,
 				0C6B9AAA1B66894300D5FBD4 /* LaunchScreen.xib in Resources */,
 				0C6B9AA71B66894300D5FBD4 /* Images.xcassets in Resources */,
 			);
@@ -295,14 +295,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0C6B9AA31B66894300D5FBD4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0C6B9AA41B66894300D5FBD4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0C6B9AA81B66894300D5FBD4 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

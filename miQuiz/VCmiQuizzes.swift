@@ -17,8 +17,17 @@ class VCmiQuizzes: UIViewController , UITableViewDataSource, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "miQuizzes"
         
+        
+        
+        
+        
+        self.title = "miQuizzes"
+        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
+        navigationItem.leftBarButtonItem = backButton
+        
+        var newQuiz = UIBarButtonItem(title: "Add Quiz", style: .Plain, target: self, action:"addQuiz:")
+        navigationItem.rightBarButtonItem = newQuiz
         var snapshot: FDataSnapshot = FDataSnapshot()
         var ref = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes")
         
@@ -85,10 +94,55 @@ class VCmiQuizzes: UIViewController , UITableViewDataSource, UITableViewDelegate
         //Set the animation
         self.navigationController?.pushViewController(view, animated: true)
         view.title = miQuizzes[indexPath.row] as? String //Set the text
+        view.name =  (miQuizzes[indexPath.row] as? String)!
         
         
         
+    }
+    func addQuiz(sender:UIButton){
+    
+        var alertController:UIAlertController?
+        alertController = UIAlertController(title: "Create New Quiz",
+            message: "",
+            preferredStyle: .Alert)
         
+        alertController!.addTextFieldWithConfigurationHandler(
+            {(textField: UITextField!) in
+                textField.placeholder = "Quiz Title"
+        })
+        alertController?.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: {[weak self]
+            (paramAction:UIAlertAction!) in
+            
+            }))
+        alertController?.addAction(UIAlertAction(title: "Submit",
+            style: UIAlertActionStyle.Default,
+            handler: {[weak self]
+                (paramAction:UIAlertAction!) in
+                if let textFields = alertController?.textFields{
+                    let theTextFields = textFields as! [UITextField]
+                    let enteredText = theTextFields[0].text
+                    var roundRef =  Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(enteredText)/Round 1")
+                    let post1 = ["Question": "Add Your Own Question" , "Answer":"And Your Own Answer"]
+                    let post1Ref = roundRef.childByAutoId()
+                    post1Ref.setValue(post1)
+                    
+                    var view: VCmiQuizzesDetail = self!.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetail") as! VCmiQuizzesDetail
+                    //Set the animation
+                    view.title = "\(enteredText)"
+                    self!.navigationController?.pushViewController(view, animated: true)
+                    
+                    
+                    
+                    
+                }
+            }))
+        
+        
+        self.presentViewController(alertController!,
+            animated: true,
+            completion: nil)
+
+    
     }
     
     

@@ -154,7 +154,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xfj-Ji-mgG">
-                                <rect key="frame" x="8" y="41" width="263" height="30"/>
+                                <rect key="frame" x="8" y="89" width="263" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
@@ -162,46 +162,28 @@
                                 </connections>
                             </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKr-H1-a4H">
-                                <rect key="frame" x="279" y="41" width="31" height="30"/>
+                                <rect key="frame" x="279" y="89" width="31" height="30"/>
                                 <state key="normal" title="New">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="41V-xf-ZUd">
-                                <rect key="frame" x="8" y="79" width="301" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="72O-f7-924" id="3xX-ZE-YrR"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wM-Ii-hkZ">
-                                <rect key="frame" x="0.0" y="13" width="30" height="30"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" red="0.88373974116161613" green="0.026640913678132948" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="closeWindow:" destination="72O-f7-924" eventType="touchUpInside" id="kMr-K6-hlg"/>
-                                </connections>
-                            </button>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZCN-03-WFA">
-                                <rect key="frame" x="85" y="117" width="147" height="82"/>
+                                <rect key="frame" x="85" y="165" width="147" height="82"/>
                                 <connections>
                                     <outlet property="dataSource" destination="72O-f7-924" id="Y6e-Xj-kee"/>
                                     <outlet property="delegate" destination="72O-f7-924" id="6KB-g4-05W"/>
                                 </connections>
                             </pickerView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I7-b1-206">
-                                <rect key="frame" x="139" y="278" width="38" height="44"/>
+                                <rect key="frame" x="139" y="326" width="38" height="44"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ES5-Ku-eyk">
-                                <rect key="frame" x="0.0" y="94" width="600" height="506"/>
+                                <rect key="frame" x="0.0" y="111" width="600" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="HWm-H7-QTd" userLabel="cell">
@@ -217,14 +199,16 @@
                                     <outlet property="delegate" destination="72O-f7-924" id="V9u-dY-aCj"/>
                                 </connections>
                             </tableView>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="41V-xf-ZUd">
+                                <rect key="frame" x="8" y="127" width="301" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="72O-f7-924" id="3xX-ZE-YrR"/>
+                                </connections>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Round" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjj-7P-KDS">
-                                <rect key="frame" x="190" y="17" width="119" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quiz Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltz-T9-xZA">
-                                <rect key="frame" x="38" y="17" width="85" height="21"/>
+                                <rect key="frame" x="127" y="67" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -237,7 +221,6 @@
                         <outlet property="answerField" destination="41V-xf-ZUd" id="Nig-Bh-TSZ"/>
                         <outlet property="doneButton" destination="1I7-b1-206" id="HBH-tJ-73A"/>
                         <outlet property="myPicker" destination="ZCN-03-WFA" id="NDC-hg-Mcr"/>
-                        <outlet property="quizName" destination="ltz-T9-xZA" id="jw4-Fj-7Ky"/>
                         <outlet property="roundName" destination="Sjj-7P-KDS" id="rdE-Lb-v8n"/>
                         <outlet property="tableView" destination="ES5-Ku-eyk" id="gqd-xQ-M6G"/>
                         <outlet property="textField" destination="Xfj-Ji-mgG" id="VNM-zR-YFN"/>
@@ -306,7 +289,7 @@
         <!--miQuizzes-->
         <scene sceneID="8zj-Wo-BaW">
             <objects>
-                <viewController title="miQuizzes" automaticallyAdjustsScrollViewInsets="NO" id="PjH-J4-yEr" customClass="VCmiQuizzes" customModule="miQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VCmiQuizzes" title="miQuizzes" automaticallyAdjustsScrollViewInsets="NO" id="PjH-J4-yEr" customClass="VCmiQuizzes" customModule="miQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DDV-F9-stR"/>
                         <viewControllerLayoutGuide type="bottom" id="BPQ-oU-PmN"/>
@@ -349,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsB-fj-neJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424" y="-75"/>
+            <point key="canvasLocation" x="1389" y="-50"/>
         </scene>
     </scenes>
 </document>

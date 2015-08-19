@@ -19,13 +19,17 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
     var arrayInc = 0
     var quiz = ""
     var name = ""
-    
+    var timer: NSTimer!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         name = self.title!
+        
+        
+        name = self.title!
+        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Bordered, target: self, action: "goBack")
+        self.navigationItem.leftBarButtonItem = button
         
         var refreshButton = UIBarButtonItem(title: "Add Round", style: .Plain, target: self, action:"addRound:") //Use a selector
         navigationItem.rightBarButtonItem = refreshButton
@@ -76,14 +80,21 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
             }
         })
         
-
+            
         
         
         
         
         // Do any additional setup after loading the view.
     }
-
+    func goBack(){
+        
+        var view: VCmiQuizzes = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzes") as! VCmiQuizzes
+        //Set the animation
+        
+      self.navigationController?.pushViewController(view, animated: false)
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         var num = 1
@@ -130,6 +141,7 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
         view.addConstraint(verticalLayoutContraint)
         return view
     }
+    
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -212,24 +224,24 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
     func addRound(sender:UIButton){
     
         var theRoundVal = (miRounds[miRounds.count - 1] as! Int) + 1
+        println("\(theRoundVal)")
         var roundRef =  Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.name)/Round \(theRoundVal)")
         let post1 = ["Question": "Add Your Own Question" , "Answer":"And Your Own Answer"]
         let post1Ref = roundRef.childByAutoId()
         post1Ref.setValue(post1)
-        tableView.reloadData()
+        
        
     }
     
     func addQuestion(sender:UIButton){
-        
-        
         var view: VCmiQuizzesDetailAddQuestion = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetailAddQuestion") as! VCmiQuizzesDetailAddQuestion
         //Set the animation
-        self.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
-        presentViewController(view, animated: true, completion: nil)
+        self.navigationController?.pushViewController(view, animated: true)
         //view.quizName.text = "Round " +  String(sender.tag)//Set the text
-        view.quizName.text = self.title
-        view.roundName.text = "Round " +  String(sender.tag)
+        view.title = self.title
+        //view.roundName = "Round " +  String(sender.tag)
+        view.roundNameTest = "Round " +  String(sender.tag)
+        //view.roundName.text =
     
     }
     
@@ -327,7 +339,12 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
                     
        
      }
+   
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+            tableView.reloadData()
+       
+    }
     
-
 
 }

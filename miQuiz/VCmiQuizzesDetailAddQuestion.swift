@@ -19,13 +19,9 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var roundName: UILabel!
     @IBOutlet weak var quizName: UILabel!
     var name = ""
-    @IBAction func closeWindow(sender: AnyObject) {
-        var view: VCmiQuizzesDetail = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetail") as! VCmiQuizzesDetail
-        //Set the animation
-        self.navigationController?.pushViewController(view, animated: true)
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
+    var roundNameTest = ""
+ 
     
     var data: NSMutableArray = NSMutableArray()
     var IDArray: NSMutableArray = NSMutableArray()
@@ -34,6 +30,7 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
     var search : [String] = []
 //    var data = ["What is the capital city of England?","What is the capital city of Spain?","What is the capital city of Russia?","What is the capital city of Austria?","Why did Roselin Franklin (pre discovered DNA helix) win no Nobel prize?","A mountain is the symbol of which film company?","The French call it creme anglaise what do we call it?","What is French for hello?","How old is the Queen of Denmark?"]
     
+   
     
     @IBOutlet weak var addQuestion: UIButton!
    
@@ -44,9 +41,11 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
         
         
         super.viewDidLoad()
+        roundName.text = roundNameTest
+       
         
-        
-        
+        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Bordered, target: self, action: "goBack")
+        self.navigationItem.leftBarButtonItem = button
         
         textField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
         addQuestion.addTarget(self, action: "addQuestion:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -82,14 +81,24 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
         
         
         
-        
+  
         
         
         
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    func goBack(){
     
+        var view: VCmiQuizzesDetail = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetail") as! VCmiQuizzesDetail
+        //Set the animation
+        
+        view.title = self.title //Set the text
+        println(self.title)
+        
+        self.navigationController?.pushViewController(view, animated: false)
+    
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -240,7 +249,7 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
             
             
             
-            var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.quizName.text!)/\(self.roundName.text!)" )
+            var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.title!)/\(self.roundName.text!)" )
             let post1 = ["ID": "ID" + String(count)]
             let post1Ref = addToQuiz.childByAutoId()
             post1Ref.setValue(post1)
@@ -264,8 +273,7 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
         doneButton.hidden = true
         myPicker.hidden = true
         
-        
-        
+            
         
         
         
@@ -357,7 +365,7 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
                             if elements.key == "Question" {
                                 if elements.value as! String == self.search[indexPath.row]
                                 {
-                                    var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.quizName.text!)/\(self.roundName.text!)" )
+                                    var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.title!)/\(self.roundName.text!)" )
                                     let post1 = ["ID": ID]
                                     let post1Ref = addToQuiz.childByAutoId()
                                     post1Ref.setValue(post1)
@@ -380,5 +388,5 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
         
 
     }
-}
+    }
 
