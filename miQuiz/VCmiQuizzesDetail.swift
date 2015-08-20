@@ -239,7 +239,7 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
     
         var theRoundVal = (miRounds[miRounds.count - 1] as! Int) + 1
         var roundRef =  Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.name)/Round \(theRoundVal)")
-        let post1 = ["Question": "Add Your Own Question" , "Answer":"And Your Own Answer"]
+        let post1 = ["Holder": "Holder"]
         let post1Ref = roundRef.childByAutoId()
         post1Ref.setValue(post1)
         
@@ -339,10 +339,21 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
                                                 {
                                                     
                                                     var theRef = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.name)/Round \(indexPath.section + 1)/\(all.key)" )
-                                                    println("there")
                                                     let post1 = []
                                                     theRef.setValue(post1)
+                                                    theRef.observeSingleEventOfType(.Value, withBlock:{snapshot in
+                                                    var questionsInRound = snapshot.childrenCount
                                                     
+                                                    if questionsInRound == 0{
+                                                        
+                                                        var refToAlter = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.name)")
+                                                        for all in snapshot.children.allObjects as! [FDataSnapshot]{
+                                                            let newName = "Test"
+                                                            refToAlter.setValue(newName)
+                                                        }
+                                                    }
+                                                
+                                                    })
                                                     //var view: VCmiQuizzesDetail = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetail") as! VCmiQuizzesDetail
                                                     //tableView.reloadData()
                                                     //self.navigationController?.pushViewController(view, animated: true)

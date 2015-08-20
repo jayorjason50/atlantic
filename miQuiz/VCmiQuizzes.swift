@@ -125,7 +125,7 @@ class VCmiQuizzes: UIViewController , UITableViewDataSource, UITableViewDelegate
                     let theTextFields = textFields as! [UITextField]
                     let enteredText = theTextFields[0].text
                     var roundRef =  Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(enteredText)/Round 1")
-                    let post1 = ["Question": "Add Your Own Question" , "Answer":"And Your Own Answer"]
+                    let post1 = ["Holder": "Holder"]
                     let post1Ref = roundRef.childByAutoId()
                     post1Ref.setValue(post1)
                     

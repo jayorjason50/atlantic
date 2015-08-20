@@ -344,7 +344,8 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
         var theRef = Firebase(url:"https://miquiz.firebaseio.com/Questions")
     
         theRef.observeSingleEventOfType(.Value, withBlock:{snapshot in
-    
+            
+            
     
                 for rest in snapshot.children.allObjects as! [FDataSnapshot]{
     
@@ -366,9 +367,35 @@ class VCmiQuizzesDetailAddQuestion:UIViewController, UITableViewDelegate, UITabl
                                 if elements.value as! String == self.search[indexPath.row]
                                 {
                                     var addToQuiz = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.title!)/\(self.roundName.text!)" )
-                                    let post1 = ["ID": ID]
-                                    let post1Ref = addToQuiz.childByAutoId()
-                                    post1Ref.setValue(post1)
+                                    addToQuiz.observeSingleEventOfType(.Value, withBlock:{snapshot in
+                                        for rest in snapshot.children.allObjects as! [FDataSnapshot]{
+                                            
+                                            var child = rest.children.allObjects
+                                            for elements in child as! [FDataSnapshot]{
+                                                
+                                                if elements.key == "Holder"
+                                                {
+                                                    let post1 = []
+                                                    addToQuiz.setValue(post1)
+                                                    println(elements.value)
+                                                }
+                                                
+                                            }
+                                        }
+                                        
+                                        
+                                        
+//                                        if snapshot.childrenCount == 1 {
+//                                            let post1 = []
+//                                            addToQuiz.setValue(post1)
+//                                            
+//                                        
+//                                        }
+                                        let post2 = ["ID": ID]
+                                        let post2Ref = addToQuiz.childByAutoId()
+                                        post2Ref.setValue(post2)
+                                    })
+                                    
                                     
                                     
     
