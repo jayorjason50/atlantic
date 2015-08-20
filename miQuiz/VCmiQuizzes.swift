@@ -10,27 +10,30 @@ import UIKit
 
 class VCmiQuizzes: UIViewController , UITableViewDataSource, UITableViewDelegate{
     var miQuizzes: NSMutableArray = NSMutableArray()
-    
+    var theTitle = ""
+    var path = NSIndexPath()
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var plus: UIBarButtonItem!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        
+        plus.action = "addQuiz:"
+        plus.target = self
         var purple = UIColor(red:(84/255),green:(0/255),blue:(79/255),alpha:1.0)
        
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:UIControlState.Normal)
         
         navigationController?.navigationBar.barTintColor = purple
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
-        navigationItem.leftBarButtonItem = backButton
+//        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
+//        navigationItem.leftBarButtonItem = backButton
         
-        var newQuiz = UIBarButtonItem(title: "Add Quiz", style: .Plain, target: self, action:"addQuiz:")
-        navigationItem.rightBarButtonItem = newQuiz
+//        var newQuiz = UIBarButtonItem(title: "Add Quiz", style: .Plain, target: self, action:"addQuiz:")
+//        navigationItem.rightBarButtonItem = newQuiz
         var snapshot: FDataSnapshot = FDataSnapshot()
         var ref = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes")
         
@@ -87,22 +90,38 @@ class VCmiQuizzes: UIViewController , UITableViewDataSource, UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        
+        let newTitle = (miQuizzes[indexPath.row] as? String)!
+
+        
+        // Create an instance of PlayerTableViewController and pass the variable
+        let destinationVC = VCmiQuizzesDetail()
+        destinationVC.newTitle = newTitle
+       
+        
+        
+    
+        theTitle =  (miQuizzes[indexPath.row] as? String)!
+        
+        
         //Values to index into the array holding the data
         let row = indexPath.row
         let section = indexPath.section
         let quiz = (miQuizzes[indexPath.row] as! String) //Get string representation of the cells text
         
         //Make a reference to the VCMyQuizzesDetail (It's Identifier is set via storyboard -> ID card icon -> Identifier
-        var view: VCmiQuizzesDetail = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetail") as! VCmiQuizzesDetail
-        //Set the animation
-        self.navigationController?.pushViewController(view, animated: true)
-        view.title = miQuizzes[indexPath.row] as? String //Set the text
-        view.name =  (miQuizzes[indexPath.row] as? String)!
+        
+        
+//        var view: VCmiQuizzesDetail = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetail") as! VCmiQuizzesDetail
+//        //Set the animation
+//        self.navigationController?.pushViewController(view, animated: true)
+//        view.title = miQuizzes[indexPath.row] as? String //Set the text
+//        view.name =  (miQuizzes[indexPath.row] as? String)!
         
         
         
     }
-    func addQuiz(sender:UIButton){
+    func addQuiz(sender:UIBarButtonItem){
     
         var alertController:UIAlertController?
         alertController = UIAlertController(title: "Create New Quiz",
@@ -147,7 +166,18 @@ class VCmiQuizzes: UIViewController , UITableViewDataSource, UITableViewDelegate
 
     
     }
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        path = indexPath
+        return indexPath
+    }
     
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    if segue.identifier == "toDetail"{
+        var dest = segue.destinationViewController as! VCmiQuizzesDetail
+        dest.title = miQuizzes[path.row] as? String
+    }
+  }
     
 
    

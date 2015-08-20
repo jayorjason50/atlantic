@@ -26,7 +26,8 @@
 		0C6B9ACA1B66B67D00D5FBD4 /* VCsharedQuizzes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9AC91B66B67D00D5FBD4 /* VCsharedQuizzes.swift */; };
 		0C6B9ACC1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */; };
 		0CD683F91B6FDF3500A39AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD683F81B6FDF3500A39AF9 /* Main.storyboard */; };
-		0CF740451B8513E1001B1C8D /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF740441B8513CE001B1C8D /* Firebase.framework */; };
+		0CF740491B866FF1001B1C8D /* CustomHeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF740481B866FF1001B1C8D /* CustomHeaderCellTableViewCell.swift */; };
+		0CFE255C1B86766E00A63B04 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF740441B8513CE001B1C8D /* Firebase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCsharedQuizzesDetail.swift; sourceTree = "<group>"; };
 		0CD683F81B6FDF3500A39AF9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0CF740441B8513CE001B1C8D /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		0CF740481B866FF1001B1C8D /* CustomHeaderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CF740451B8513E1001B1C8D /* Firebase.framework in Frameworks */,
+				0CFE255C1B86766E00A63B04 /* Firebase.framework in Frameworks */,
 				0C44A2FD1B68350A003CBA73 /* libc++.dylib in Frameworks */,
 				0C44A2FB1B6834F8003CBA73 /* libicucore.dylib in Frameworks */,
 				0C44A2F91B6834E6003CBA73 /* Security.framework in Frameworks */,
@@ -121,6 +123,7 @@
 			children = (
 				0C6B9A9C1B66894300D5FBD4 /* AppDelegate.swift */,
 				0CD683F81B6FDF3500A39AF9 /* Main.storyboard */,
+				0CF740481B866FF1001B1C8D /* CustomHeaderCellTableViewCell.swift */,
 				0C6B9AA11B66894300D5FBD4 /* ViewController.swift */,
 				0C6B9ABF1B66B55700D5FBD4 /* VCmiQuizzes.swift */,
 				0C6B9ACB1B66B74800D5FBD4 /* VCsharedQuizzesDetail.swift */,
@@ -279,6 +282,7 @@
 				0C6B9AC61B66B63C00D5FBD4 /* VCmiQuestions.swift in Sources */,
 				0C6B9AA01B66894300D5FBD4 /* miQuiz.xcdatamodeld in Sources */,
 				0C6B9AC21B66B5D100D5FBD4 /* VCmiQuizzesDetail.swift in Sources */,
+				0CF740491B866FF1001B1C8D /* CustomHeaderCellTableViewCell.swift in Sources */,
 				0C6B9ACA1B66B67D00D5FBD4 /* VCsharedQuizzes.swift in Sources */,
 				0C6B9AC01B66B55700D5FBD4 /* VCmiQuizzes.swift in Sources */,
 				0C6B9A9D1B66894300D5FBD4 /* AppDelegate.swift in Sources */,
@@ -410,6 +414,9 @@
 					"$(USER_LIBRARY_DIR)/Mobile",
 					"Documents/com~apple~CloudDocs/Downloaded",
 					Frameworks/Firebase,
+					"$(USER_LIBRARY_DIR)/Mobile",
+					"Documents/com~apple~CloudDocs/Downloaded",
+					Frameworks/Firebase,
 				);
 				INFOPLIST_FILE = miQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -431,6 +438,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Liam/Downloads/Firebase,
+					"$(USER_LIBRARY_DIR)/Mobile",
+					"Documents/com~apple~CloudDocs/Downloaded",
+					Frameworks/Firebase,
 					"$(USER_LIBRARY_DIR)/Mobile",
 					"Documents/com~apple~CloudDocs/Downloaded",
 					Frameworks/Firebase,

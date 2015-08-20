@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var theSelectedName = ""
 class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
@@ -19,9 +19,36 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
     var arrayInc = 0
     var quiz = ""
     var name = ""
+    var newTitle = ""
     var timer: NSTimer!
     var grey = UIColor(red:(204/255),green:(204/255),blue:(204/255),alpha:1.0)
+  
     
+    @IBAction func showActionSheet(sender: AnyObject) {
+        
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+       
+        let addRound = UIAlertAction(title: "Add Round", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.addRound()
+        })
+        let addQuestion = UIAlertAction(title: "Add Question", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.addQuestion()
+        })
+      
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        
+        optionMenu.addAction(addRound)
+        optionMenu.addAction(addQuestion)
+        optionMenu.addAction(cancel)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -29,11 +56,13 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
         
         
         name = self.title!
-        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Bordered, target: self, action: "goBack")
-        self.navigationItem.leftBarButtonItem = button
+//        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Bordered, target: self, action: "goBack")
+//        self.navigationItem.leftBarButtonItem = button
         
-        var refreshButton = UIBarButtonItem(title: "Add Round", style: .Plain, target: self, action:"addRound:") //Use a selector
-        navigationItem.rightBarButtonItem = refreshButton
+//        var refreshButton = UIBarButtonItem(title: "Add Round", style: .Plain, target: self, action:"addRound:") //Use a selector
+//        navigationItem.rightBarButtonItem = refreshButton
+        
+        
         
         var snapshot: FDataSnapshot = FDataSnapshot()
         var ref = Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/" + name) //Make ref to the selected quiz
@@ -88,13 +117,13 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
         
         // Do any additional setup after loading the view.
     }
-    func goBack(){
-        
-        var view: VCmiQuizzes = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzes") as! VCmiQuizzes
-        //Set the animation
-        
-      self.navigationController?.pushViewController(view, animated: false)
-    }
+//    func goBack(){
+//        
+//        var view: VCmiQuizzes = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzes") as! VCmiQuizzes
+//        //Set the animation
+//        
+//      self.navigationController?.pushViewController(view, animated: false)
+//    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
@@ -127,36 +156,11 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-       
-        
-        var view = UIView() // The width will be the same as the cell, and the height should be set in tableView:heightForRowAtIndexPath:
-        var label = UILabel()
-        label.text="Round " + String(section + 1)
-        let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button.tag = section + 1
-        button.addTarget(self, action: "addQuestion:", forControlEvents:.TouchUpInside)
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
-        button.setTranslatesAutoresizingMaskIntoConstraints(false)
-        button.setTitle("Add Question", forState: .Normal)
-        button.setTitleColor(UIColor.grayColor(),forState: UIControlState.Normal)
-        let views = ["label": label,"button":button,"view": view]
-        
-        
-        view.backgroundColor = grey
-        
-        
-        view.addSubview(label)
-        view.addSubview(button)
-        var horizontallayoutContraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[label]-60-[button]-10-|", options: .AlignAllCenterY, metrics: nil, views: views)
-        view.addConstraints(horizontallayoutContraints)
-        
-        var verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
-        view.addConstraint(verticalLayoutContraint)
-        return view
+       let headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! CustomHeaderCellTableViewCell
+        headerCell.headerLabel.text = "Round " + String(section + 1)
+    
+        return headerCell
     }
-    
-    
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
@@ -208,6 +212,7 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
                 if data == "\(MiQuestionTitle)"{
                     var cat = rest.value.objectForKey("Category") as! String
                     cell.detailTextLabel?.text = cat
+                    cell.detailTextLabel?.hidden = false
                 }
                 
 
@@ -235,7 +240,7 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
 
     
     
-    func addRound(sender:UIButton){
+    func addRound(){
     
         var theRoundVal = (miRounds[miRounds.count - 1] as! Int) + 1
         var roundRef =  Firebase(url:"https://miquiz.firebaseio.com/MyQuizzes/\(self.name)/Round \(theRoundVal)")
@@ -246,18 +251,30 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
        
     }
     
-    func addQuestion(sender:UIButton){
-        var view: VCmiQuizzesDetailAddQuestion = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetailAddQuestion") as! VCmiQuizzesDetailAddQuestion
-        //Set the animation
-        self.navigationController?.pushViewController(view, animated: true)
-        //view.quizName.text = "Round " +  String(sender.tag)//Set the text
-        view.title = self.title
-        //view.roundName = "Round " +  String(sender.tag)
-        view.roundNameTest = "Round " +  String(sender.tag)
-        //view.roundName.text =
+//    func addQuestion(sender:UIButton){
+//        var view: VCmiQuizzesDetailAddQuestion = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetailAddQuestion") as! VCmiQuizzesDetailAddQuestion
+//        //Set the animation
+//        self.navigationController?.pushViewController(view, animated: true)
+//        //view.quizName.text = "Round " +  String(sender.tag)//Set the text
+//        view.title = self.title
+//        //view.roundName = "Round " +  String(sender.tag)
+//        view.roundNameTest = "Round " +  String(sender.tag)
+//        //view.roundName.text =
+//    
+//    }
     
-    }
-    
+        func addQuestion(){
+            var view: VCmiQuizzesDetailAddQuestion = self.storyboard?.instantiateViewControllerWithIdentifier("VCmiQuizzesDetailAddQuestion") as! VCmiQuizzesDetailAddQuestion
+            //Set the animation
+            self.navigationController?.pushViewController(view, animated: true)
+            //view.quizName.text = "Round " +  String(sender.tag)//Set the text
+            view.title = self.title
+            //view.roundName = "Round " +  String(sender.tag)
+            
+            view.roundNameTest = theSelectedName
+            //view.roundName.text =
+        
+        }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         var deleteButton = UITableViewRowAction(style: .Default, title: "Remove", handler: { (action, indexPath) in
@@ -382,6 +399,7 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
        
      }
     
+    
    
 //    override func viewWillAppear(animated: Bool) {
 //        super.viewWillAppear(true)
@@ -390,4 +408,18 @@ class VCmiQuizzesDetail: UIViewController, UITableViewDataSource, UITableViewDel
 //    }
     
 
+}
+class CustomHeaderCellTableViewCell: UITableViewCell {
+    
+    var activeRound = "Test"
+    @IBOutlet var headerLabel: UILabel!
+    @IBAction func touchArea(sender: AnyObject) {
+        activeRound = headerLabel.text!
+        theSelectedName = activeRound
+        
+    }
+    
+    
+    
+    
 }
