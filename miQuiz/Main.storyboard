@@ -359,19 +359,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bgc-5H-uaz">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="FkC-Ns-Pmc">
-                            <rect key="frame" x="234" y="5.5" width="132" height="33"/>
+                        <view key="titleView" contentMode="scaleToFill" id="2QI-uP-jg1">
+                            <rect key="frame" x="265" y="6" width="70" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo-mini" translatesAutoresizingMaskIntoConstraints="NO" id="W05-b1-vcG">
-                                    <rect key="frame" x="-60" y="0.0" width="252" height="33"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-mini" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-cT-Erc">
+                                    <rect key="frame" x="0.0" y="2" width="70" height="29"/>
                                 </imageView>
                             </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="W05-b1-vcG" firstAttribute="leading" secondItem="FkC-Ns-Pmc" secondAttribute="leading" constant="-82" id="0La-5t-6Jh"/>
-                                <constraint firstItem="W05-b1-vcG" firstAttribute="top" secondItem="FkC-Ns-Pmc" secondAttribute="top" id="6Ky-1P-Hw2"/>
-                                <constraint firstItem="W05-b1-vcG" firstAttribute="centerX" secondItem="FkC-Ns-Pmc" secondAttribute="centerX" id="9J4-8H-sXL"/>
-                                <constraint firstAttribute="bottom" secondItem="W05-b1-vcG" secondAttribute="bottom" id="fBr-GY-RiL"/>
+                                <constraint firstAttribute="centerY" secondItem="UeO-cT-Erc" secondAttribute="centerY" id="a20-pO-9jQ"/>
+                                <constraint firstAttribute="bottom" secondItem="UeO-cT-Erc" secondAttribute="bottom" constant="2" id="btk-5D-vJg"/>
+                                <constraint firstItem="UeO-cT-Erc" firstAttribute="leading" secondItem="2QI-uP-jg1" secondAttribute="leading" id="fQY-BI-WRq"/>
+                                <constraint firstAttribute="trailing" secondItem="UeO-cT-Erc" secondAttribute="trailing" id="hZ1-0H-Lp0"/>
+                                <constraint firstItem="UeO-cT-Erc" firstAttribute="top" secondItem="2QI-uP-jg1" secondAttribute="top" constant="2" id="nqJ-tb-qyg"/>
                             </constraints>
                         </view>
                     </navigationItem>
